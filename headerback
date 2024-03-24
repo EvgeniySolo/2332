@@ -1,0 +1,40 @@
+<header class="header">
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                <div class="col-10">
+                    <div class="header_inner">
+                        <div class="header_rightSection">
+                            <div class="header_logo">
+                                <img src="assets/img/logo3.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <nav class="header_nav">
+                                <li><a href="#">Главная</a></li>
+                                <li><a href="#catalog">Каталог</a></li>
+                                <li><a href="">Бренд</a></li>
+                                <?php if ($_SESSION['user']['isAdmin'] == 1): ?>
+                                    <a class="editor" href="admin_panel.php"
+                                        style="text-decoration: underline; color: brown;">Aдмин панель</a>
+                                <?php endif; ?>
+                            </nav>
+                        </div>
+                        <div class="header_leftSection">
+                            <div class="header_users">
+                                <?php
+                                if (!empty($_SESSION['user']['login'])) {
+                                    echo '<img src="assets/img/icons/icon _user_.png">' . $_SESSION["user"]['login'];
+
+                                    echo '<br><a href="php/logout.php" id="exit" style="color: red !important; font-size:15px; margin-left: 20px">Выход</a>';
+
+                                } else {
+                                    echo '<a href="login_page.php"><i>Авторизация</i></a>';
+                                }
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
